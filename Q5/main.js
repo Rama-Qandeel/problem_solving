@@ -13,27 +13,44 @@ strings stored in strArr which will contain 2 elements:
   If there is no intersection, return the string false.
 */
 
-function FindIntersection(strArr) {
-  let result=''
-let firstEle=strArr[0].split(',')
-let secondEle=strArr[1].split(',')
-firstEle.forEach(element1 => {
-  secondEle.forEach(element2 => {
-if (element1===element2){
-  result+=element1+','
-}
-if (result===''){
-  result=false
-}
-  })
-});
+// function FindIntersection(strArr) {
+//   let result=''
+// let firstEle=strArr[0].split(',')
+// let secondEle=strArr[1].split(',')
+// firstEle.forEach(element1 => {
+//   secondEle.forEach(element2 => {
+// if (element1===element2){
+//   result+=element1+','
+// }
+// if (result===''){
+//   result=false
+// }
+//   })
+// });
   
-  return result
-}
+//   return result
+// }
 
 /* 
 Examples:
 FindIntersection(['1, 3, 4, 7, 13','1, 2, 4, 13, 15']); // => '1,4,13'
 FindIntersection(['1, 3, 9, 10, 17, 18', '1, 4, 9, 10']); // => '1,9,10'
 */
+//***************************************************************************** */
+function FindIntersection(strArr) {
+  let firstString = strArr[0]
+  let secondString = strArr[1]
 
+  let firstElementArray = []
+  let secondElementArray = []
+  firstString.split(',').map((oneNumber) => {
+    firstElementArray.push(Number(oneNumber))
+  })
+  console.log(firstElementArray)
+  secondString.split(',').map((oneNumber) => {
+    secondElementArray.push(Number(oneNumber))
+  })
+  let myAnswer = (secondElementArray.filter(e =>      
+   firstElementArray.includes(e))).toString()
+return myAnswer
+}
